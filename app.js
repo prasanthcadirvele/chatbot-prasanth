@@ -6,6 +6,7 @@ const formulaire = document.querySelector("#formulaire");
 const champ = document.querySelector("#message");
 const historique = document.querySelector("#historique");
 const statut = document.querySelector("#statut");
+const btnEffacer = document.querySelector("#effacer");
 
 function afficher() {
     historique.replaceChildren();
@@ -47,5 +48,11 @@ async function chargerRegles() {
         statut.textContent = "Le service ne répond pas. Le chatbot répondra moins bien.";
     }
 }
+
+btnEffacer.addEventListener("click", () => {
+    etat.messages = [];
+    statut.textContent = "";
+    afficher();
+});
 
 chargerRegles();

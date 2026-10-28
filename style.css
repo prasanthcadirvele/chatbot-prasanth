@@ -129,3 +129,14 @@ button:hover {
 button:active {
     transform: scale(0.98);
 }
+
+#effacer {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+}
+
+#effacer:hover {
+    background-color: #f1f1ee;
+    color: var(--text-main);
+}
