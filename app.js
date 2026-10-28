@@ -12,6 +12,14 @@ function afficher() {
     for (const m of etat.messages) {
         const li = document.createElement("li");
         li.textContent = m.role + " : " + m.texte;
+
+        // Attribution d'une classe CSS selon l'expéditeur
+        if (m.role === "Vous") {
+            li.classList.add("message-user");
+        } else {
+            li.classList.add("message-bot");
+        }
+
         historique.append(li);
     }
 }
