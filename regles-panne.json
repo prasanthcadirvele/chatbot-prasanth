@@ -1,0 +1,14 @@
+[
+  {
+    "motCle": "bonjour",
+    "reponse": "Bonjour ! Bienvenue sur notre service."
+  },
+  {
+    "motCle": "horaire",
+    "reponse": "Nous sommes ouverts du lundi au vendredi de 8h à 19h."
+  },
+  {
+    "motCle": "prix",
+    "reponse": "Nos tarifs débutent à partir de 15 euros."
+  }
+]
