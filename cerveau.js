@@ -1,4 +1,4 @@
-export function repondre(texte, regles) {
+export function repondre(texte, regles = []) {
     const message = texte.toLowerCase();
     for (const regle of regles) {
         if (message.includes(regle.motCle)) {
