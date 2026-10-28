@@ -4,7 +4,8 @@ import { repondre } from "../cerveau.js";
 
 const regles = [
     { motCle: "bonjour", reponse: "Salut !" },
-    { motCle: "prix", reponse: "25 euros." }
+    { motCle: "prix", reponse: "Nos pizzas coûtent entre 10 et 16 euros." },
+    { motCle: "livraison", reponse: "Livraison disponible." }
 ];
 
 test("répond à un mot-clé connu", () => {
@@ -12,14 +13,14 @@ test("répond à un mot-clé connu", () => {
 });
 
 test("trouve le mot-clé au milieu d'une phrase, même en majuscules", () => {
-    assert.equal(repondre("Quel est le PRIX svp?", regles), "25 euros.");
+    assert.equal(repondre("Quel est le PRIX svp?", regles), "Nos pizzas coûtent entre 10 et 16 euros.");
 });
 
 test("donne une réponse par défaut si rien ne correspond", () => {
     assert.match(repondre("météo", regles), /pas compris/);
 });
 
-// Test supplémentaire que tu ajoutes toi-même :
-test("répond correctement même s'il y a des espaces superflus", () => {
-    assert.equal(repondre("  prix  ", regles), "25 euros.");
+
+test("répond correctement quand le mot-clé livraison est présent dans une phrase", () => {
+    assert.equal(repondre("Est-ce que vous faites la livraison ce soir ?", regles), "Livraison disponible.");
 });
