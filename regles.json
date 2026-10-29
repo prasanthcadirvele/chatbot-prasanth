@@ -4,11 +4,19 @@
     "reponse": "Bonjour ! Bienvenue sur notre service."
   },
   {
-    "motCle": "horaire",
-    "reponse": "Nous sommes ouverts du lundi au vendredi de 8h à 19h."
+    "motCle": "salut",
+    "reponse": "Bonjour ! Bienvenue sur notre service."
+  },
+  {
+    "motCle": "livraison",
+    "reponse": "Livraison disponible du mardi au dimanche de 11h30 à 14h30 et de 18h30 à 23h."
   },
   {
     "motCle": "prix",
     "reponse": "Nos tarifs débutent à partir de 15 euros."
+  },
+  {
+    "motsCles": ["horaire", "horaires", "ouvert", "fermeture", "ouverture"],
+    "reponse": "Nous sommes ouverts du mardi au dimanche de 11h30 à 14h30 et de 18h30 à 23h."
   }
 ]

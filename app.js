@@ -14,16 +14,17 @@ function afficher() {
     for (const m of etat.messages) {
         const li = document.createElement("li");
         li.textContent = m.role + " : " + m.texte;
-
-        // Attribution d'une classe CSS selon l'expéditeur
         if (m.role === "Vous") {
             li.classList.add("message-user");
         } else {
             li.classList.add("message-bot");
+            if (m.temporaire) {
+                li.classList.add("message-ecriture");
+            }
         }
-
         historique.append(li);
     }
+    historique.scrollTop = historique.scrollHeight;
 }
 
 formulaire.addEventListener("submit", (evenement) => {
@@ -35,10 +36,25 @@ formulaire.addEventListener("submit", (evenement) => {
     }
     statut.textContent = "";
     etat.messages.push({ role: "Vous", texte });
-    etat.messages.push({ role: "Bot", texte: repondre(texte, etat.regles) });
     champ.value = "";
-    compteur.textContent = `0 / 200`;
+    compteur.textContent = "0 / 200";
+
+    etat.messages.push({ role: "Bot", texte: "En train d'écrire...", temporaire: true });
     afficher();
+
+    champ.disabled = true;
+    const boutonEnvoyer = formulaire.querySelector("#envoyer");
+    boutonEnvoyer.disabled = true;
+
+    setTimeout(() => {
+        etat.messages.pop();
+        etat.messages.push({ role: "Bot", texte: repondre(texte, etat.regles) });
+
+        champ.disabled = false;
+        boutonEnvoyer.disabled = false;
+        afficher();
+        champ.focus();
+    }, 600);
 });
 
 async function chargerRegles() {
