@@ -140,3 +140,11 @@ button:active {
     background-color: #f1f1ee;
     color: var(--text-main);
 }
+
+#compteur {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 6px;
+    margin-right: 4px;
+}

@@ -7,6 +7,7 @@ const champ = document.querySelector("#message");
 const historique = document.querySelector("#historique");
 const statut = document.querySelector("#statut");
 const btnEffacer = document.querySelector("#effacer");
+const compteur = document.querySelector("#compteur");
 
 function afficher() {
     historique.replaceChildren();
@@ -36,6 +37,7 @@ formulaire.addEventListener("submit", (evenement) => {
     etat.messages.push({ role: "Vous", texte });
     etat.messages.push({ role: "Bot", texte: repondre(texte, etat.regles) });
     champ.value = "";
+    compteur.textContent = `0 / 200`;
     afficher();
 });
 
@@ -52,7 +54,12 @@ async function chargerRegles() {
 btnEffacer.addEventListener("click", () => {
     etat.messages = [];
     statut.textContent = "";
+    compteur.textContent = `0 / 200`;
     afficher();
+});
+
+champ.addEventListener("input", () => {
+    compteur.textContent = `${champ.value.length} / 200`;
 });
 
 chargerRegles();
