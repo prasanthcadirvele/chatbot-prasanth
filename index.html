@@ -2,17 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Mon chatbot</title>
+    <title>Chatbot - Pizza Bella</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Mon chatbot</h1>
+<h1>Chatbot Pizza Bella</h1>
 <ul id="historique"></ul>
 <p id="statut"></p>
 <form id="formulaire">
     <label for="message">Votre message</label>
     <input id="message" name="message" maxlength="200" autocomplete="off">
-    <button id="envoyer" type="submit">Envoyer</button>
+    <button id="envoyer" type="submit" >Envoyer</button>
+    <button id="effacer" type="button">Effacer</button>
 </form>
+<p id="compteur">0 / 200</p>
 <script type="module" src="app.js"></script>
 </body>
 </html>
