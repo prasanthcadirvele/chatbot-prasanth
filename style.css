@@ -148,3 +148,20 @@ button:active {
     margin-top: 6px;
     margin-right: 4px;
 }
+
+.message-ecriture {
+    font-style: italic;
+    color: var(--text-muted);
+    opacity: 0.8;
+    animation: pulsation 1s infinite alternate;
+}
+
+@keyframes pulsation {
+    from { opacity: 0.4; }
+    to { opacity: 0.9; }
+}
+
+button:disabled, input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

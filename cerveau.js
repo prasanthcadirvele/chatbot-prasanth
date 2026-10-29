@@ -1,7 +1,8 @@
 export function repondre(texte, regles = []) {
     const message = texte.toLowerCase();
     for (const regle of regles) {
-        if (message.includes(regle.motCle)) {
+        const cles = regle.motsCles || [regle.motCle];
+        if (cles.some(mot => message.includes(mot))) {
             return regle.reponse;
         }
     }
